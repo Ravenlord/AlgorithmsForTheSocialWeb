@@ -3,12 +3,13 @@
 error_reporting(E_ALL | E_DEPRECATED);
 ini_set('display-errors', 1);
 ini_set('html_errors', 0);
+header('content-type: text/plain; charset=utf-8');
 
 global $mysqli;
 
 $mysqli = mysqli_init();
 
-$mysqli->real_connect('localhost', 'root', NULL, 'book-crossing');
+$mysqli->real_connect('localhost', 'root', 'QnwDhcpugZHsxK5', 'book-crossing');
 
 function fetch_val($query) {
   global $mysqli;
@@ -31,7 +32,6 @@ function fetch_array($query) {
 }
 
 function print_result(array $a) {
-  header('content-type: text/plain; charset=utf-8');
   print_r($a);
   exit;
 }
@@ -144,7 +144,7 @@ function cosine_similarity_vector_abs(array $a) {
   foreach (array_values($a) as $v) {
     $r += $v * $v;
   }
-  return $r;
+  return sqrt($r);
 }
 
 function cosine_similarity(array $x, array $y) {

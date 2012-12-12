@@ -3,7 +3,10 @@
 error_reporting(E_ALL | E_DEPRECATED);
 ini_set('display-errors', 1);
 ini_set('html_errors', 0);
-header('content-type: text/plain; charset=utf-8');
+
+if (!isset($_GET['html']) && !isset($_GET['csv'])) {
+  header('content-type: text/plain; charset=utf-8');
+}
 
 global $result;
 

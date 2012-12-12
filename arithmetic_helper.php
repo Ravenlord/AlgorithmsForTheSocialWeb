@@ -109,3 +109,27 @@ function cosine_similarity(array $x, array $y) {
   }
   return $dot_product / $abs_xy;
 }
+
+/**
+ * Get the metric of two items based on Jaccard index.
+ *
+ * @link https://en.wikipedia.org/wiki/Jaccard_index
+ * @param array $x
+ *   User ratings array one.
+ * @param array $y
+ *   User ratings array two.
+ * @param array $intersect_count
+ *   Element count of intersected array.
+ * @return float
+ *   Returns the similarity metric (between 0 and 1).
+ */
+function jaccard_index(array $x, array $y, $intersect_count = 0) {
+  if ($intersect_count == 0) {
+    return 0;
+  }
+  $array_union = count($x + $y);
+  if ($array_union == 0) {
+    return 0;
+  }
+  return ($array_union - $intersect_count) / $array_union;
+}

@@ -1,0 +1,13 @@
+/**
+ * 
+ */
+package at.ac.fhs.aftsw.optics.algorithm;
+
+/**
+ * @author Markus
+ *
+ */
+public class OpticsAlgorithm implements Algorithm {
+
+
+}

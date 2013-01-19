@@ -1,0 +1,18 @@
+package at.ac.fhs.aftsw.task8.utils;
+
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.commons.io.FileUtils;
+
+import at.ac.fhs.aftsw.task8.entities.Seed;
+
+public class FileParser {
+
+	public static Map<Seed, Map<String, Double>> parseSeedsFile(File file) {
+		Map<Seed, Map<String, Double>> seeds = new HashMap<Seed, Map<String, Double>>();
+		
+		return seeds;
+	}
+}

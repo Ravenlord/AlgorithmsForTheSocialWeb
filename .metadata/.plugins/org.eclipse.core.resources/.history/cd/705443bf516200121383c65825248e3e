@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package at.ac.fhs.aftsw.task8.entities;
+
+/**
+ * @author Markus
+ *
+ */
+public class Seed {
+
+}

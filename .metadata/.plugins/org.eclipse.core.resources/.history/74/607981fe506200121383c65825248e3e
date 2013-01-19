@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package at.ac.fhs.aftsw.optics.algorithm;
+
+/**
+ * @author Markus
+ *
+ */
+public interface Algorithm {
+
+}

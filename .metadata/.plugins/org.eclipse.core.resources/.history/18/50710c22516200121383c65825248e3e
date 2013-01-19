@@ -1,0 +1,13 @@
+/**
+ * 
+ */
+package at.ac.fhs.aftsw.optics.algorithm;
+
+/**
+ * @author Markus Deutschl
+ * Generic Algorithm interface.
+ */
+public interface Algorithm {
+	
+	public void process();
+}

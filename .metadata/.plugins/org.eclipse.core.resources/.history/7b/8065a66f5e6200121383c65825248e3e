@@ -1,0 +1,22 @@
+package at.ac.fhs.aftsw.task8;
+
+import java.io.File;
+
+import at.ac.fhs.aftsw.task8.utils.FileParser;
+
+/**
+ * @author Markus Deutschl
+ * The main class for the OPTICS algorithm.
+ */
+public class Main {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		String path = System.getProperty("user.home") + File.pathSeparator + "data.txt";
+		File file = new File(path);
+		Map<Seed, Map<String, Double>> objects = FileParser.parseSeedsFile(file);
+	}
+
+}

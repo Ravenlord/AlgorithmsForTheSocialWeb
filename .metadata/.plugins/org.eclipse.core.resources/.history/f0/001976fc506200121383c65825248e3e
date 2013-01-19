@@ -1,0 +1,21 @@
+/**
+ * 
+ */
+package at.ac.fhs.aftsw.optics.algorithm;
+
+/**
+ * @author Markus
+ *
+ */
+public class OpticsAlgorithm implements Algorithm {
+
+	/* (non-Javadoc)
+	 * @see at.ac.fhs.aftsw.optics.algorithm.Algorithm#process()
+	 */
+	@Override
+	public void process() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

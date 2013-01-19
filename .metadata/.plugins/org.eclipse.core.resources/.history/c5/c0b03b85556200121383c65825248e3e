@@ -1,0 +1,118 @@
+package at.ac.fhs.aftsw.task8.entities;
+
+/**
+ * @author Markus Deutschl
+ * 
+ */
+public class Seed {
+	/*
+	 * Properties.
+	 * -------------------------------------------------------------------------
+	 */
+	/**
+	 * The name of the seed.
+	 */
+	private String name;
+	/**
+	 * The x-position of the seed.
+	 */
+	private double x;
+	/**
+	 * The y-position of the seed.
+	 */
+	private double y;
+	/**
+	 * The seed's core distance.
+	 */
+	private double coreDistance;
+	/**
+	 * The seed's reachability distance.
+	 */
+	private double reachabilityDistance;
+
+	/*
+	 * Constructors.
+	 * -------------------------------------------------------------------------
+	 */
+	public Seed(String name) {
+		this(name, 0.0, 0.0, 0.0, 0.0);
+	}
+
+	public Seed(String name, double x, double y, double coreDistance,
+			double reachabilityDistance) {
+		this.setName(name);
+		this.setX(x);
+		this.setY(y);
+		this.setCoreDistance(coreDistance);
+		this.setReachabilityDistance(reachabilityDistance);
+	}
+
+	/*
+	 * Getters and setters.
+	 * -------------------------------------------------------------------------
+	 */
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public double getX() {
+		return x;
+	}
+
+	public void setX(double x) {
+		this.x = x;
+	}
+
+	public double getY() {
+		return y;
+	}
+
+	public void setY(double y) {
+		this.y = y;
+	}
+
+	public double getCoreDistance() {
+		return coreDistance;
+	}
+
+	public void setCoreDistance(double coreDistance) {
+		this.coreDistance = coreDistance;
+	}
+
+	public double getReachabilityDistance() {
+		return reachabilityDistance;
+	}
+
+	public void setReachabilityDistance(double reachabilityDistance) {
+		this.reachabilityDistance = reachabilityDistance;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		return prime * result + ((name == null) ? 0 : name.hashCode());
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if(obj == null){
+			return false;
+		}
+		if(this == obj || this.getName().equals(((Seed) obj).getName())) {
+			return true;
+		}
+		return false;
+	}
+	
+	/*
+	 * Required comparison methods.
+	 * -------------------------------------------------------------------------
+	 */
+	
+
+}

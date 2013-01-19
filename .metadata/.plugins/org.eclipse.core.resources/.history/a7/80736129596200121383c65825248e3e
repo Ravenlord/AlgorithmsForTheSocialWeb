@@ -1,0 +1,149 @@
+package at.ac.fhs.aftsw.task8.entities;
+
+/**
+ * @author Markus Deutschl
+ * 
+ */
+public class Seed implements Comparable<Seed> {
+	/*
+	 * Properties.
+	 * -------------------------------------------------------------------------
+	 */
+	/**
+	 * The name of the seed.
+	 */
+	private String name;
+	/**
+	 * The x-position of the seed.
+	 */
+	private double x;
+	/**
+	 * The y-position of the seed.
+	 */
+	private double y;
+	/**
+	 * The seed's core distance.
+	 */
+	private double coreDistance;
+	/**
+	 * The seed's reachability distance.
+	 */
+	private double reachabilityDistance;
+
+	/*
+	 * Constructors.
+	 * -------------------------------------------------------------------------
+	 */
+	public Seed(String name) {
+		this(name, 0.0, 0.0, Double.MAX_VALUE, Double.MAX_VALUE);
+	}
+	
+	public Seed(String name, double x, double y) {
+		this(name, x, y, Double.MAX_VALUE, Double.MAX_VALUE);
+	}
+
+	public Seed(String name, double x, double y, double coreDistance,
+			double reachabilityDistance) {
+		this.setName(name);
+		this.setX(x);
+		this.setY(y);
+		this.setCoreDistance(coreDistance);
+		this.setReachabilityDistance(reachabilityDistance);
+	}
+
+	/*
+	 * Getters and setters.
+	 * -------------------------------------------------------------------------
+	 */
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public double getX() {
+		return x;
+	}
+
+	public void setX(double x) {
+		this.x = x;
+	}
+
+	public double getY() {
+		return y;
+	}
+
+	public void setY(double y) {
+		this.y = y;
+	}
+
+	public double getCoreDistance() {
+		return coreDistance;
+	}
+
+	public void setCoreDistance(double coreDistance) {
+		this.coreDistance = coreDistance;
+	}
+
+	public double getReachabilityDistance() {
+		return reachabilityDistance;
+	}
+
+	public void setReachabilityDistance(double reachabilityDistance) {
+		this.reachabilityDistance = reachabilityDistance;
+	}
+
+	/*
+	 * Required comparison methods.
+	 * -------------------------------------------------------------------------
+	 */
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		return prime * result + ((name == null) ? 0 : name.hashCode());
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null) {
+			return false;
+		}
+		if (this == obj || this.getName().equals(((Seed) obj).getName())) {
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder("Seed: name='");
+		sb.append(this.getName());
+		sb.append("', x=");
+		sb.append(this.getX());
+		sb.append(", y=");
+		sb.append(this.getY());
+		sb.append(", core distance=");
+		sb.append(this.getCoreDistance());
+		sb.append(", reachability distance=");
+		sb.append(this.getReachabilityDistance());
+		return sb.toString();
+	}
+
+	@Override
+	public int compareTo(Seed otherSeed) {
+		if (this == otherSeed){
+			return 0;
+		}
+		if (this.getReachabilityDistance() == otherSeed.getReachabilityDistance()) {
+			return this.getName().compareTo(otherSeed.getName());
+		} else {
+			return (int) (this.getReachabilityDistance() - otherSeed
+					.getReachabilityDistance());
+		}
+	}
+
+}

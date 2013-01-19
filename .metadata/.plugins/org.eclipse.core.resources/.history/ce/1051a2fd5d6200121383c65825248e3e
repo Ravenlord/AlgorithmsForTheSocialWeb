@@ -1,0 +1,10 @@
+package at.ac.fhs.aftsw.task8.algorithm;
+
+/**
+ * @author Markus Deutschl
+ * Generic Algorithm interface.
+ */
+public interface Algorithm {
+	
+	public void process();
+}

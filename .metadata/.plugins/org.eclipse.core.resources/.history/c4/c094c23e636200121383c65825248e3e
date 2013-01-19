@@ -1,0 +1,20 @@
+package at.ac.fhs.aftsw.task8.algorithm;
+
+import java.util.Map;
+
+import at.ac.fhs.aftsw.task8.entities.Seed;
+
+/**
+ * @author Markus Deutschl
+ * OPTICS algorithm implementation.
+ */
+public class OpticsAlgorithm implements Algorithm {
+
+	@Override
+	public void process(Map<Seed, Map<String, Double>> seeds) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+}

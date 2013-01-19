@@ -1,0 +1,17 @@
+package at.ac.fhs.aftsw.task8.entities;
+
+import java.util.Comparator;
+
+/**
+ * 
+ * @author Markus Deutschl
+ * Comparator class for sorted data types like SortedMap.
+ */
+public class SeedComparator implements Comparator<Seed> {
+
+	@Override
+	public int compare(Seed lhs, Seed rhs) {
+		return lhs.compareTo(rhs);
+	}
+
+}

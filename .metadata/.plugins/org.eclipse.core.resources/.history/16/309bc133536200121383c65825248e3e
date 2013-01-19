@@ -1,0 +1,9 @@
+package at.ac.fhs.aftsw.task8.entities;
+
+/**
+ * @author Markus Deutschl
+ *
+ */
+public class Seed {
+
+}

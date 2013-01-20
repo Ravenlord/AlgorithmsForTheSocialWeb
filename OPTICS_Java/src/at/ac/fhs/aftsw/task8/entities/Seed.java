@@ -1,8 +1,14 @@
 package at.ac.fhs.aftsw.task8.entities;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 /**
  * @author Markus Deutschl
@@ -54,9 +60,9 @@ public class Seed implements Comparable<Seed> {
 	public Seed(String name) {
 		this(name, 0.0, 0.0, INFINITY, INFINITY);
 	}
-	
+
 	public Seed(String name, String x, String y) throws NumberFormatException {
-		this(name, Double.parseDouble(x), Double.parseDouble(y), INFINITY, INFINITY);
+		this(name, Double.valueOf(x), Double.valueOf(y), INFINITY, INFINITY);
 	}
 
 	public Seed(String name, double x, double y, double coreDistance,
@@ -64,7 +70,7 @@ public class Seed implements Comparable<Seed> {
 		this.setName(name);
 		this.setX(x);
 		this.setY(y);
-		this.setCoreDistance(coreDistance);
+		this.coreDistance = coreDistance;
 		this.setReachabilityDistance(reachabilityDistance);
 		this.distances = new HashMap<String, Double>();
 	}
@@ -101,8 +107,13 @@ public class Seed implements Comparable<Seed> {
 		return coreDistance;
 	}
 
-	public void setCoreDistance(double coreDistance) {
-		this.coreDistance = coreDistance;
+	public void setCoreDistance(int minPoints, double epsilon) {
+		List<Double> distanceValues = new ArrayList<Double>(
+				this.distances.values());
+		Collections.sort(distanceValues);
+		double tempCoreDistance = distanceValues.get(minPoints - 1);
+		this.coreDistance = tempCoreDistance > epsilon ? INFINITY
+				: tempCoreDistance;
 	}
 
 	public double getReachabilityDistance() {
@@ -112,23 +123,29 @@ public class Seed implements Comparable<Seed> {
 	public void setReachabilityDistance(double reachabilityDistance) {
 		this.reachabilityDistance = reachabilityDistance;
 	}
-	
+
 	public boolean isProcessed() {
 		return this.processed;
 	}
-	
+
 	public void setProcessed(boolean processed) {
 		this.processed = processed;
+	}
+
+	public Map<String, Double> getDistances() {
+		return Collections.unmodifiableMap(this.distances);
 	}
 
 	public double getDistance(String seedName) {
 		return this.distances.get(seedName);
 	}
-	
+
 	public void addDistance(String seedName, double distance) {
-		if(this.distances.containsKey(seedName)) return;
+		if (this.distances.containsKey(seedName))
+			return;
 		this.distances.put(seedName, distance);
 	}
+
 	/*
 	 * Required comparison methods.
 	 * -------------------------------------------------------------------------
@@ -136,58 +153,32 @@ public class Seed implements Comparable<Seed> {
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		return prime * result + ((name == null) ? 0 : name.hashCode());
+		HashCodeBuilder builder = new HashCodeBuilder();
+		builder.append(this.name);
+		return builder.toHashCode();
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		if (obj == null) {
+		EqualsBuilder builder = new EqualsBuilder();
+		if (obj == null || !(obj instanceof Seed)) {
 			return false;
 		}
-		if (this == obj || this.getName().equals(((Seed) obj).getName())) {
+		if(this == obj){
 			return true;
 		}
-		return false;
-	}
-
-	@Override
-	public String toString() {
-		StringBuilder sb = new StringBuilder("Seed: name='");
-		sb.append(this.getName());
-		sb.append("', x=");
-		sb.append(this.getX());
-		sb.append(", y=");
-		sb.append(this.getY());
-		sb.append(", core distance=");
-		if(this.getCoreDistance() == INFINITY){
-			sb.append("inf");
-		} else {
-			sb.append(this.getCoreDistance());			
-		}
-		sb.append(", reachability distance=");
-		if(this.getReachabilityDistance() == INFINITY) {
-			sb.append("inf");
-		} else {
-			sb.append(this.getReachabilityDistance());			
-		}
-		sb.append("distances=[\n");
-		for(Entry<String, Double> entry : this.distances.entrySet()){
-			sb.append(entry.getKey());
-			sb.append(" => ");
-			sb.append(entry.getValue());
-			sb.append("\n");
-		}
-		return sb.toString();
+		Seed other = (Seed) obj;
+		builder.append(this.name, other.getName());
+		return builder.isEquals();
 	}
 
 	@Override
 	public int compareTo(Seed otherSeed) {
-		if (this == otherSeed){
+		if (this == otherSeed) {
 			return 0;
 		}
-		if (this.getReachabilityDistance() == otherSeed.getReachabilityDistance()) {
+		if (this.getReachabilityDistance() == otherSeed
+				.getReachabilityDistance()) {
 			return this.getName().compareTo(otherSeed.getName());
 		} else {
 			return (int) (this.getReachabilityDistance() - otherSeed
@@ -195,4 +186,47 @@ public class Seed implements Comparable<Seed> {
 		}
 	}
 
+	/*
+	 * Printing methods.
+	 * -------------------------------------------------------------------------
+	 */
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder("Seed: name='");
+		sb.append(this.getName());
+//		sb.append("', x=");
+//		sb.append(this.getX());
+//		sb.append(", y=");
+//		sb.append(this.getY());
+//		sb.append(", core distance=");
+//		sb.append(this.getCoreDistance() == INFINITY ? "inf" : this
+//				.getCoreDistance());
+		sb.append(", reachability distance=");
+		sb.append(this.getReachabilityDistance() == INFINITY ? "inf" : this
+				.getReachabilityDistance());
+		sb.append("\n");
+//		sb.append(" processed=");
+//		sb.append(this.isProcessed());
+//		sb.append("\ndistances=[\n");
+//		for (Entry<String, Double> entry : this.distances.entrySet()) {
+//			sb.append(entry.getKey());
+//			sb.append(" => ");
+//			sb.append(entry.getValue());
+//			sb.append("\n");
+//		}
+//		sb.append("]\n");
+		return sb.toString();
+	}
+
+	public String toPrintableString() {
+		StringBuilder sb = new StringBuilder(this.getName());
+		sb.append("\t");
+		sb.append(this.getReachabilityDistance() == INFINITY ? "inf" : this
+				.getReachabilityDistance());
+		sb.append("\t");
+		sb.append(this.getCoreDistance() == INFINITY ? "inf" : this
+				.getCoreDistance());
+		sb.append("\n");
+		return sb.toString();
+	}
 }

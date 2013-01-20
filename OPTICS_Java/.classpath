@@ -2,21 +2,19 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
-	<classpathentry kind="lib" path="D:/Programme/Apache Commons/commons-io-2.4/commons-io-2.4.jar" sourcepath="D:/Programme/Apache Commons/commons-io-2.4/commons-io-2.4-sources.jar">
+	<classpathentry kind="lib" path="vendor/commons-io-2.4/commons-io-2.4.jar" sourcepath="vendor/commons-io-2.4/commons-io-2.4-sources.jar">
 		<attributes>
-			<attribute name="javadoc_location" value="jar:file:/D:/Programme/Apache Commons/commons-io-2.4/commons-io-2.4-javadoc.jar!/"/>
-			<attribute name="source_encoding" value="UTF-8"/>
+			<attribute name="javadoc_location" value="jar:platform:/resource/OPTICS_Java/vendor/commons-io-2.4/commons-io-2.4-javadoc.jar!/"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/Programme/Apache Commons/commons-lang3-3.1/commons-lang3-3.1.jar" sourcepath="D:/Programme/Apache Commons/commons-lang3-3.1/commons-lang3-3.1-sources.jar">
+	<classpathentry kind="lib" path="vendor/commons-lang3-3.1/commons-lang3-3.1.jar" sourcepath="vendor/commons-lang3-3.1/commons-lang3-3.1-sources.jar">
 		<attributes>
-			<attribute name="javadoc_location" value="jar:file:/D:/Programme/Apache Commons/commons-lang3-3.1/commons-lang3-3.1-javadoc.jar!/"/>
-			<attribute name="source_encoding" value="UTF-8"/>
+			<attribute name="javadoc_location" value="jar:platform:/resource/OPTICS_Java/vendor/commons-lang3-3.1/commons-lang3-3.1-javadoc.jar!/"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/Programme/Apache Commons/commons-math3-3.1.1/commons-math3-3.1.1.jar" sourcepath="D:/Programme/Apache Commons/commons-math3-3.1.1/commons-math3-3.1.1-sources.jar">
+	<classpathentry kind="lib" path="vendor/commons-math3-3.1.1/commons-math3-3.1.1.jar" sourcepath="vendor/commons-math3-3.1.1/commons-math3-3.1.1-sources.jar">
 		<attributes>
-			<attribute name="javadoc_location" value="jar:file:/D:/Programme/Apache Commons/commons-math3-3.1.1/commons-math3-3.1.1-javadoc.jar!/"/>
+			<attribute name="javadoc_location" value="jar:platform:/resource/OPTICS_Java/vendor/commons-math3-3.1.1/commons-math3-3.1.1-javadoc.jar!/"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="output" path="bin"/>

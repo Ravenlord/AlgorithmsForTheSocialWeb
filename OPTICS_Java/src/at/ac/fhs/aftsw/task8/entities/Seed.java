@@ -164,7 +164,7 @@ public class Seed implements Comparable<Seed> {
 		if (obj == null || !(obj instanceof Seed)) {
 			return false;
 		}
-		if(this == obj){
+		if (this == obj) {
 			return true;
 		}
 		Seed other = (Seed) obj;
@@ -194,27 +194,27 @@ public class Seed implements Comparable<Seed> {
 	public String toString() {
 		StringBuilder sb = new StringBuilder("Seed: name='");
 		sb.append(this.getName());
-//		sb.append("', x=");
-//		sb.append(this.getX());
-//		sb.append(", y=");
-//		sb.append(this.getY());
-//		sb.append(", core distance=");
-//		sb.append(this.getCoreDistance() == INFINITY ? "inf" : this
-//				.getCoreDistance());
+		sb.append("', x=");
+		sb.append(this.getX());
+		sb.append(", y=");
+		sb.append(this.getY());
+		sb.append(", core distance=");
+		sb.append(this.getCoreDistance() == INFINITY ? "inf" : this
+				.getCoreDistance());
 		sb.append(", reachability distance=");
 		sb.append(this.getReachabilityDistance() == INFINITY ? "inf" : this
 				.getReachabilityDistance());
-		sb.append("\n");
-//		sb.append(" processed=");
-//		sb.append(this.isProcessed());
-//		sb.append("\ndistances=[\n");
-//		for (Entry<String, Double> entry : this.distances.entrySet()) {
-//			sb.append(entry.getKey());
-//			sb.append(" => ");
-//			sb.append(entry.getValue());
-//			sb.append("\n");
-//		}
-//		sb.append("]\n");
+
+		sb.append(" processed=");
+		sb.append(this.isProcessed());
+		sb.append("\ndistances=[\n");
+		for (Entry<String, Double> entry : this.distances.entrySet()) {
+			sb.append(entry.getKey());
+			sb.append(" => ");
+			sb.append(entry.getValue());
+			sb.append("\n");
+		}
+		sb.append("]\n");
 		return sb.toString();
 	}
 

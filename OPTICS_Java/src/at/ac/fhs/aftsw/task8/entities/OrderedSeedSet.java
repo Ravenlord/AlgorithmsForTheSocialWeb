@@ -20,20 +20,25 @@ public class OrderedSeedSet extends TreeSet<Seed> {
 	 * -------------------------------------------------------------------------
 	 */
 	/**
-	 * Inserts the seed if it doesn't exist yet.
-	 * Update is not necessary, because we only have references.
-	 * @param seedToInsert The seed to insert or update.
+	 * Inserts the seed if it doesn't exist yet. Update is not necessary,
+	 * because we only have references.
+	 * 
+	 * @param seedToInsert
+	 *            The seed to insert or update.
 	 */
 	public void insertOrUpdate(Seed seedToInsert) {
-		for(Seed s : this) {
-			
-			if(StringUtils.equalsIgnoreCase(s.getName(), seedToInsert.getName())) return;
+		for (Seed s : this) {
+
+			if (StringUtils.equalsIgnoreCase(s.getName(),
+					seedToInsert.getName()))
+				return;
 		}
 		this.add(seedToInsert);
 	}
-	
+
 	/**
 	 * Removes the first element from the set and returns it.
+	 * 
 	 * @return The first element of the set.
 	 */
 	public Seed pop() {

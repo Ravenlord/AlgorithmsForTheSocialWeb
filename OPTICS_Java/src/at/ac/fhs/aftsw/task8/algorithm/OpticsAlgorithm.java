@@ -1,7 +1,6 @@
 package at.ac.fhs.aftsw.task8.algorithm;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 

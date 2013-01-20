@@ -7,7 +7,6 @@ import at.ac.fhs.aftsw.task8.algorithm.Algorithm;
 import at.ac.fhs.aftsw.task8.algorithm.OpticsAlgorithm;
 import at.ac.fhs.aftsw.task8.distance.DistanceCalculator;
 import at.ac.fhs.aftsw.task8.distance.EuclidianDistanceCalculator;
-import at.ac.fhs.aftsw.task8.entities.OrderedSeedSet;
 import at.ac.fhs.aftsw.task8.entities.Seed;
 import at.ac.fhs.aftsw.task8.utils.FileParser;
 
@@ -74,11 +73,6 @@ public class Main {
 			calculateDistances(minPoints, epsilon);
 			algorithm = new OpticsAlgorithm(minPoints, epsilon);
 			algorithm.process(objects);
-//			OrderedSeedSet seeds = new OrderedSeedSet();
-//			seeds.add(objects.get(0));
-//			seeds.add(objects.get(1));
-//			Seed tmp = seeds.pop();
-//			System.out.println(tmp);
 		}
 	}
 

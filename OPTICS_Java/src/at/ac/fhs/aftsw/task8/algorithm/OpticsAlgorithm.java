@@ -1,10 +1,11 @@
 package at.ac.fhs.aftsw.task8.algorithm;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-import at.ac.fhs.aftsw.task8.entities.OrderedSeedSet;
+import at.ac.fhs.aftsw.task8.entities.OrderedSeeds;
 import at.ac.fhs.aftsw.task8.entities.Seed;
 
 /**
@@ -36,7 +37,7 @@ public class OpticsAlgorithm implements Algorithm {
 	@Override
 	public void process(List<Seed> seeds) {
 		this.seeds = seeds;
-		OrderedSeedSet orderedSeeds = new OrderedSeedSet();
+		OrderedSeeds orderedSeeds = new OrderedSeeds();
 		List<Seed> neighbors = null;
 		for (Seed obj : seeds) {
 			if (obj.isProcessed()) {
@@ -72,9 +73,11 @@ public class OpticsAlgorithm implements Algorithm {
 					if (poppedSeed.getCoreDistance() != Seed.INFINITY) {
 						for (Seed neighbor : neighbors) {
 							double tempReachabilityDistance = Math.max(
-									poppedSeed.getCoreDistance(),
-									poppedSeedDistances.get(neighbor.getName())
-											.doubleValue());
+								poppedSeed.getCoreDistance(),
+								poppedSeedDistances
+									.get(neighbor.getName())
+									.doubleValue()
+							);
 							neighbor.setReachabilityDistance(Math.min(
 									neighbor.getReachabilityDistance(),
 									tempReachabilityDistance));
@@ -89,14 +92,16 @@ public class OpticsAlgorithm implements Algorithm {
 	private List<Seed> rangeQuery(Seed obj) {
 		List<Seed> neighbors = new ArrayList<Seed>();
 		Map<String, Double> distances = obj.getDistances();
+
 		for (Seed neighbor : this.seeds) {
-			if (obj.getName().equals(neighbor.getName()))
-				continue;
-			if (!neighbor.isProcessed()
-					&& distances.get(neighbor.getName()) <= this.epsilon) {
+			if (obj.getName().equals(neighbor.getName())) continue;
+			if (!neighbor.isProcessed()	&& distances.get(neighbor.getName()) <= this.epsilon) {
 				neighbors.add(neighbor);
 			}
 		}
+
+		Collections.sort(neighbors);
+		
 		return neighbors;
 	}
 

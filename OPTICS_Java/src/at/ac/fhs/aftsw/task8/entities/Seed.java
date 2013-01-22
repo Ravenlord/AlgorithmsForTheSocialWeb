@@ -180,10 +180,8 @@ public class Seed implements Comparable<Seed> {
 		if (this.getReachabilityDistance() == otherSeed
 				.getReachabilityDistance()) {
 			return this.getName().compareTo(otherSeed.getName());
-		} else {
-			return (int) (this.getReachabilityDistance() - otherSeed
-					.getReachabilityDistance());
 		}
+		return (int) ((this.getReachabilityDistance() - otherSeed.getReachabilityDistance()) * 1000);
 	}
 
 	/*
@@ -204,17 +202,17 @@ public class Seed implements Comparable<Seed> {
 		sb.append(", reachability distance=");
 		sb.append(this.getReachabilityDistance() == INFINITY ? "inf" : this
 				.getReachabilityDistance());
-
-		sb.append(" processed=");
-		sb.append(this.isProcessed());
-		sb.append("\ndistances=[\n");
-		for (Entry<String, Double> entry : this.distances.entrySet()) {
-			sb.append(entry.getKey());
-			sb.append(" => ");
-			sb.append(entry.getValue());
-			sb.append("\n");
-		}
-		sb.append("]\n");
+		sb.append("\n");
+//		sb.append(" processed=");
+//		sb.append(this.isProcessed());
+//		sb.append("\ndistances=[\n");
+//		for (Entry<String, Double> entry : this.distances.entrySet()) {
+//			sb.append(entry.getKey());
+//			sb.append(" => ");
+//			sb.append(entry.getValue());
+//			sb.append("\n");
+//		}
+//		sb.append("]\n");
 		return sb.toString();
 	}
 

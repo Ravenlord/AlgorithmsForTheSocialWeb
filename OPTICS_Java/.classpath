@@ -17,5 +17,10 @@
 			<attribute name="javadoc_location" value="jar:platform:/resource/OPTICS_Java/vendor/commons-math3-3.1.1/commons-math3-3.1.1-javadoc.jar!/"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="vendor/commons-collections-3.2.1/commons-collections-3.2.1.jar" sourcepath="vendor/commons-collections-3.2.1/commons-collections-3.2.1-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/OPTICS_Java/vendor/commons-collections-3.2.1/commons-collections-3.2.1-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
